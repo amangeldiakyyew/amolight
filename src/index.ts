@@ -1,3 +1,3 @@
-import HonoExtender from "./HonoExtender.ts";
+import AmoLight from "./AmoLight.ts";
 
-export default HonoExtender;
+export default AmoLight;

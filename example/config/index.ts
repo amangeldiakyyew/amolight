@@ -15,6 +15,10 @@ export default {
       },
     ],
   },
+  log: {
+    debug: true,
+    saveDir: path.join(process.cwd(), "/example/logs"),
+  },
   i18n: {
     fallbackLanguage: "en",
     languages: ["en", "ru", "tk"],
