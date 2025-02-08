@@ -1,0 +1,39 @@
+{
+  "name": "amolight",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot example/index.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "hono": "^4.7.0",
+    "i18next": "^24.2.2",
+    "i18next-fs-backend": "^2.6.0",
+    "ioredis": "^5.5.0",
+    "slugify": "^1.6.6",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/amangeldiakyyew/amolight.git"
+  },
+  "keywords": [
+    "amloight"
+  ],
+  "author": "Amangeldi Akyyev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amangeldiakyyew/amolight/issues"
+  },
+  "homepage": "https://github.com/amangeldiakyyew/amolight#readme"
+}
