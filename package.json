@@ -2,10 +2,14 @@
   "name": "amolight",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun run --hot example/index.ts"
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "lint": "tsc",
+    "pretty": "prettier --write ./src/**/*.{js,jsx,ts,tsx,json,md,css,scss,less,html}"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,10 +25,17 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
-    "@types/bun": "latest"
+    "@types/node": "^22.13.1",
+    "prettier": "^3.5.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
   },
   "repository": {
     "type": "git",

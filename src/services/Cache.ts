@@ -1,7 +1,7 @@
 import Redis from "ioredis";
 
 type CacheOptions = {
-  ttl?: number; // Time-to-live in seconds
+  ttl?: number;
 };
 
 type ValueTypes = string | number | boolean | object | null | undefined | [];
@@ -13,13 +13,14 @@ export default class Cache {
     if (!this.client) {
       this.client = new Redis(
         process.env.REDIS_URL || "redis://localhost:6379",
-        {
-          reconnectOnError(err) {
-            const targetError = "READONLY";
-            return err.message.includes(targetError);
-          },
-        },
       );
+      this.client.on("error", (err :Error) => {
+        2;
+        if (err.name === "ECONNREFUSED") {
+          console.error("REDIS_ERROR: ", err);
+          process.exit(1);
+        }
+      });
     }
   }
 

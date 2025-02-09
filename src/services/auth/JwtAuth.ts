@@ -1,7 +1,7 @@
 import { decode, sign, verify } from "hono/jwt";
 import { v4 as uuidV4 } from "uuid";
-import Cache from "../Cache.ts";
-import Auth, { type AuthConfig } from "./Auth.ts";
+import Cache from "../Cache";
+import Auth, { type AuthConfig } from "./Auth";
 import type { Context } from "hono";
 
 export type JwtAuthPayload = {
@@ -47,10 +47,11 @@ export default class JwtAuth extends Auth {
   private static getGuard(
     guardName: AuthConfig["guards"][number]["name"],
   ): AuthConfig["guards"][number] {
-    return (
-      JwtAuth.guards.find((guard) => guard.name === guardName) ||
-      JwtAuth.guards[0]
-    );
+    const guard = JwtAuth.guards.find((guard) => guard.name === guardName);
+    if (!guard) {
+      throw new Error(`Guard ${guardName} not found`);
+    }
+    return guard;
   }
 
   verify = async (

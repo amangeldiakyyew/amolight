@@ -1,12 +1,10 @@
-import JwtAuth from "./services/auth/JwtAuth.ts";
-import Cache from "./services/Cache.ts";
-import { Log, type LogConfig } from "./helpers/Log.ts";
-import I18n, { type I18nConfig } from "./services/I18n.ts";
-import FileUploader, {
-  type FileUploaderConfig,
-} from "./helpers/FileUploader.ts";
-import ThumbnailGenerator from "./helpers/ThumbnailGenerator.ts";
-import type { AuthConfig } from "./services/auth/Auth.ts";
+import JwtAuth from "./services/auth/JwtAuth";
+import Cache from "./services/Cache";
+import { Log, type LogConfig } from "./helpers/Log";
+import I18n, { type I18nConfig } from "./services/I18n";
+import FileUploader, { type FileUploaderConfig } from "./helpers/FileUploader";
+import ThumbnailGenerator from "./helpers/ThumbnailGenerator";
+import type { AuthConfig } from "./services/auth/Auth";
 
 export type AmoLightConfig = {
   auth: AuthConfig;

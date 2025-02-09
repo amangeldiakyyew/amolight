@@ -78,9 +78,8 @@ export default class FileUploader {
   private static getDir(
     config: FileUploaderConfig = FileUploader.config,
   ): string {
-    const dateFolder = config.createDateFolder
-      ? new Date().toISOString().split("T")[0]
-      : "";
-    return path.join(config.saveDir || this.defaultSaveDir, dateFolder);
+    const dateFolder =
+      config.createDateFolder && new Date().toISOString().split("T")[0];
+    return path.join(config.saveDir || this.defaultSaveDir, dateFolder || "");
   }
 }

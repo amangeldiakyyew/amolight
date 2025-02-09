@@ -1,3 +1,3 @@
-import AmoLight from "./AmoLight.ts";
+import AmoLight from "./AmoLight";
 
 export default AmoLight;
